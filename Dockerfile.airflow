@@ -1,0 +1,10 @@
+# Use a mesma versão que está no seu docker-compose.yaml
+FROM apache/airflow:2.10.3
+
+USER airflow
+
+# Copia o arquivo de dependências
+COPY requirements.txt /tmp/requirements.txt
+
+# Instala os pacotes
+RUN pip install --no-cache-dir -r /tmp/requirements.txt
